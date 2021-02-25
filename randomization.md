@@ -13,13 +13,12 @@ Pro: Easy to use
 Con: Could lead to unbalanced groups over short time period
 
 Tool: runif
+```
 t<-sample(0:1,100,replace=TRUE)
 table(t)
-## t
+##t
 ##  0  1 
 ## 57 43
-
-
 
 trial<- data.frame(
   id=c(1:100),
@@ -32,7 +31,7 @@ w
 ## 
 ##   placebo treatment 
 ##        49        51
-
+```
 
 
 
@@ -46,6 +45,7 @@ Block of size 2 and 4 (AB,AABB,BA,BABA,ABBA…)
 
 the graph shows the independent variable(drug, block,time) will produce uncorrelated conditions.
 
+```
 blockr<-block.random(n=100,c(drug=2))
 blockr1<-data.frame(blockr)
 table(blockr1$drug)
@@ -55,7 +55,7 @@ table(blockr1$drug)
 ## 50 50
 
 pairs.panels(blockr)
-
+```
 
 
 
@@ -69,7 +69,7 @@ Randomize within specific strata to ensure that we have equal numbers of treated
 Tool: blockrand
 
 Note: Strata is done in each site
-
+```
 age1 = blockrand(n = 50, id.prefix = "M", block.prefix = "M", stratum = "<=60")
 age2 = blockrand(n = 50, id.prefix = "M", block.prefix = "M", stratum = ">60")
 random_age = rbind(age1, age2)
@@ -84,7 +84,7 @@ a
 ##               <=60 26 26
 ##               >60  25 25
 
-
+```
 
 
 Reference:
